@@ -10,6 +10,7 @@ resource "tfe_workspace" "hcp-boundary-cluster-ws" {
   }
   working_directory = "1-hcp-boundary-cluster-ws"
   trigger_patterns = []
+  queue_all_runs = false
 }
 
 resource "tfe_workspace" "aws-boundary-infra-ws" {
@@ -24,6 +25,7 @@ resource "tfe_workspace" "aws-boundary-infra-ws" {
   }
   working_directory = "2-aws-boundary-infra-ws"
   trigger_patterns = []
+  queue_all_runs = false
 }
 
 resource "tfe_workspace" "ingress-worker-ws" {
@@ -38,6 +40,7 @@ resource "tfe_workspace" "ingress-worker-ws" {
   }
   working_directory = "3-ingress-worker-ws"
   trigger_patterns = []
+  queue_all_runs = false
 }
 
 resource "tfe_workspace" "egress-worker-ws" {
@@ -52,4 +55,5 @@ resource "tfe_workspace" "egress-worker-ws" {
   }
   working_directory = "4-egress-worker-ws"
   trigger_patterns = []
+  queue_all_runs = false
 }
