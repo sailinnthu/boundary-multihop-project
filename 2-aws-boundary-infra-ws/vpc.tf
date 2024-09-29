@@ -74,3 +74,18 @@ resource "aws_route_table_association" "boundary_route_table_association3" {
   subnet_id      = aws_subnet.boundary_public_subnet3.id
   route_table_id = aws_route_table.boundary_public_route_table.id
 }
+
+# aws_eip
+resource "aws_eip" "natgateway_eip" {
+  domain   = "vpc"
+}
+
+# aws_nat_gateway
+resource "aws_nat_gateway" "natgateway" {
+  allocation_id = aws_eip.natgateway_eip.id
+  subnet_id     = aws_subnet.boundary_public_subnet1.id
+
+  tags = {
+    Name = "${var.prefix}-boundary-natgateway"
+  }
+}
